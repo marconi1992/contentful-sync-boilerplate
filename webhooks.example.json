@@ -1,0 +1,60 @@
+{
+  "webhooks": [
+    {
+      "name": "Article",
+      "url": "{{CONTENT_WEBHOOK}}/content",
+      "httpBasicUsername": null,
+      "topics": [
+        "Entry.publish"
+      ],
+      "filters": [
+        {
+          "equals": [
+            {
+              "doc": "sys.environment.sys.id"
+            },
+            "{{CONTENTFUL_ENV}}"
+          ]
+        },
+        {
+          "equals": [
+            {
+              "doc": "sys.contentType.sys.id"
+            },
+            "articles"
+          ]
+        }
+      ],
+      "transformation": {
+        "body": {
+          "id": "{ /payload/sys/id }",
+          "contentType": "{ /payload/sys/contentType/sys/id }",
+          "title": "{ /payload/fields/title/en-US }"
+        }
+      },
+      "sys": {
+        "type": "WebhookDefinition",
+        "id": "5t8VUr8pwyNrw5peE4KFIu",
+        "version": 0,
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "3XakzCRiTGlfg2QRL4thNL"
+          }
+        },
+        "createdAt": "2018-12-14T22:11:32Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "3XakzCRiTGlfg2QRL4thNL"
+          }
+        },
+        "updatedAt": "2018-12-14T22:11:32Z"
+      },
+      "headers": [
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "contentful-sync-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "export": "node export.js",
+    "import:contentful": "node import.js",
+    "import:webhooks": "node import.webhooks.js",
+    "sync": "node sync.js",
+    "export:sync": "npm run export && npm run sync"
+  },
+  "dependencies": {
+    "contentful-export": "^7.4.0",
+    "contentful-import": "^7.4.3",
+    "diff-json": "^1.1.0",
+    "dotenv": "^6.2.0",
+    "json-templater": "^1.2.0"
+  }
+}
